@@ -1,7 +1,7 @@
 <%@ page import="com.example.webapphr1_2023.Beans.Location" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<jsp:useBean type="java.util.ArrayList<com.example.webapphr1_2023.Beans.Location>" scope="request" id="locationList"/>
+<jsp:useBean type="java.util.ArrayList<com.example.webapphr1_2023.Beans.Location>" scope="request" id="lista"/>
 
 <!DOCTYPE html>
 <html>
@@ -19,7 +19,7 @@
             <li class="breadcrumb-item active">Locations</li>
         </ol>
     </nav>
-    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=formCrear">Crear
+    <a class="btn btn-primary mb-3" href="<%=request.getContextPath()%>/LocationServlet?action=crear">Crear
         Location</a>
     <table class="table">
         <tr>
@@ -33,30 +33,30 @@
             <th></th>
         </tr>
         <%
-            for (Location loc : locationList) {
+            for (Location loc : lista) {
         %>
         <tr>
             <td><%=loc.getLocationId()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getStreet_address()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getPostal_code()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getCity()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getState_province()%>
             </td>
-            <td><%=loc.getLocationId()%>
+            <td><%=loc.getCountry_id()%>
             </td>
             <td>
                 <a class="btn btn-primary"
-                   href="<%=request.getContextPath()%>/DepartmentServlet?action=editar&id=<%=loc.getLocationId()%>">
+                   href="<%=request.getContextPath()%>/LocationServlet?action=editar&id=<%=loc.getLocationId()%>">
                     <i class="bi bi-pencil-square"></i>
                 </a>
             </td>
             <td>
                 <a class="btn btn-danger"
-                   href="<%=request.getContextPath()%>/DepartmentServlet?action=borrar&id=<%=loc.getLocationId()%>">
+                   href="<%=request.getContextPath()%>/LocationServlet?action=borrar&id=<%=loc.getLocationId()%>">
                     <i class="bi bi-trash3"></i>
                 </a>
             </td>
